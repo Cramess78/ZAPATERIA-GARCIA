@@ -1,0 +1,63 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #007aff;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.carritoBtn {
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.carritoBtn:hover {
+  transform: scale(1.07);
+}
+
+.pulse {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+
+  transition: transform 0.3s ease;
+  transform: scale(1);
+}
+
+.badgePulse {
+  transform: scale(1.3);
+}
