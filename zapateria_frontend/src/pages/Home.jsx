@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../servicios/api";
 import Filtros from "../components/Filtros/Filtros";
 import ProductoCard from "../components/ProductoCard/ProductoCard";
 
@@ -13,8 +13,9 @@ function Home({ onAddToCart }) {
   const [precioMax, setPrecioMax] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/productos/")
-      .then((res) => setProductos(res.data));
+    api.get("/productos/")
+      .then((res) => setProductos(res.data))
+      .catch((err) => console.error("Error al cargar productos:", err));
   }, []);
 
   const nombres = {

@@ -1,14 +1,24 @@
 from rest_framework import serializers
-from .models import Categoria, Producto
+from .models import Categoria, Producto, CarritoItem
 
-class ProductoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Producto
-        fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
-    productos = ProductoSerializer(many=True, read_only=True)
-
     class Meta:
         model = Categoria
-        fields = ['id', 'nombre', 'productos']
+        fields = "__all__"
+
+
+class ProductoSerializer(serializers.ModelSerializer):
+    imagen = serializers.ImageField(required=False, allow_null=True)
+    
+    class Meta:
+        model = Producto
+        fields = "__all__"
+
+
+class CarritoItemSerializer(serializers.ModelSerializer):
+    producto = ProductoSerializer(read_only=True)
+
+    class Meta:
+        model = CarritoItem
+        fields = ["id", "producto", "cantidad"]
